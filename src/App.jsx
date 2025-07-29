@@ -1,22 +1,15 @@
-import React from 'react'
-import MainLayout from './layout/Main'
-import { Routes,Route } from 'react-router'
-import Product from './pages/Products'
-import ManageP from './pages/ManageP'
-import CCategory from './pages/CCategory'
-import CategoryM from './pages/CategoryM'
+import { Route, Routes } from "react-router-dom";
+import { MultiStepForm } from "./pages";
+import AntDPage from "./pages/AntD";
 
-const App = () => {
+function App() {
   return (
-    <MainLayout>
-      <Routes>
-        <Route index element={<Product/>}/>
-        <Route element={<ManageP/>} path='managep'/>
-        <Route element={<CCategory/>} path='ccategory'/>
-        <Route element={<CategoryM/>} path='categorym'/>
-      </Routes>
-    </MainLayout>
-  )
+    <Routes>
+      <Route path="/mui" element={<MultiStepForm />} />
+      <Route path="/ant/*" element={<AntDPage />} />
+      <Route path="/" element={<div>Home Page</div>} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
